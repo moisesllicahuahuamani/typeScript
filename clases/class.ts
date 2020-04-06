@@ -37,6 +37,30 @@ setFormaDeMobilidad(PformaDeMobilidad: string){
 //valores que resivira nuestra ultima variable sera un tipo numero y un tipo texto.
 const ultimaVariableTransporte: Trasporte = new Trasporte(10, 'terrestre');
 
+//vamos a extender una clase y modificarla este es totalmente posible, agregar nuevos parametros a esto se le llama herencia de una clase 
+//a otra para ibnstanciarlo devemos usar el super y poner los parametros de clase padre
+class Auto extends Trasporte{
+    private cantiDePuertas: number;
+constructor(ParametroVelocidad: number, ParametroFormaDeMobilidad: string, ParametroCDP: number){
+    super(ParametroVelocidad, ParametroFormaDeMobilidad);
+    this.cantiDePuertas = ParametroCDP;
+}
+//De ahora en adelante vamos en el nobrado de nuestras variables y tipos con palabras que se asemejan o incluso iguales pero son cosas
+//distintas como pueden ver en el siguiente codigo asi que mucho atension, esto es una buena practica para que el flujo de nuestro 
+//trabajo sea mejor 
+getVelocidad(){
+    return super.getVelocidad() + 10 ;
+}
+getCantidadDePuertas(){
+  return this.cantiDePuertas;
+}
+setCantidadDePuertas(cantidadDePuertas: number){
+    //ejmplo de dos textos identicos que no son lo mismo.
+    this.cantiDePuertas = cantidadDePuertas
+} 
+}
+//para terminar nuestra extension de clase el resultado que para tipar con una clase esta varible se deve introducir tres valores
+//dos que bienen de la clase transporte y uno de la clase auto.
+const auto : Auto = new Auto (20, 'terrestre', 4);
 
 
-//
